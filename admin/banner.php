@@ -1,25 +1,25 @@
 <?php 
 include('top.php');
 
-if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
-	$type=get_safe_value($_GET['type']);
-	$id=get_safe_value($_GET['id']);
-	if($type=='delete'){
-		mysqli_query($con,"delete from banner where id='$id'");
-		redirect('banner.php');
-	}
-	if($type=='active' || $type=='deactive'){
-		$status=1;
-		if($type=='deactive'){
-			$status=0;
-		}
-		mysqli_query($con,"update banner set status='$status' where id='$id'");
-		redirect('banner.php');
-	}
+// if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
+// 	$type=get_safe_value($_GET['type']);
+// 	$id=get_safe_value($_GET['id']);
+// 	if($type=='delete'){
+// 		mysqli_query($con,"delete from banner where id='$id'");
+// 		redirect('banner.php');
+// 	}
+// 	if($type=='active' || $type=='deactive'){
+// 		$status=1;
+// 		if($type=='deactive'){
+// 			$status=0;
+// 		}
+// 		mysqli_query($con,"update banner set status='$status' where id='$id'");
+// 		redirect('banner.php');
+// 	}
 
-}
+// }
 
-$sql="select * from banner order by order_number";
+$sql="select * from orderfoods";
 $res=mysqli_query($con,$sql);
 
 ?>

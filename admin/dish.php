@@ -1,21 +1,21 @@
 <?php 
 include('top.php');
 
-if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
-	$type=get_safe_value($_GET['type']);
-	$id=get_safe_value($_GET['id']);
-	if($type=='active' || $type=='deactive'){
-		$status=1;
-		if($type=='deactive'){
-			$status=0;
-		}
-		mysqli_query($con,"update dish set status='$status' where id='$id'");
-		redirect('dish.php');
-	}
+// if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
+// 	$type=get_safe_value($_GET['type']);
+// 	$id=get_safe_value($_GET['id']);
+// 	if($type=='active' || $type=='deactive'){
+// 		$status=1;
+// 		if($type=='deactive'){
+// 			$status=0;
+// 		}
+// 		mysqli_query($con,"update dish set status='$status' where id='$id'");
+// 		redirect('dish.php');
+// 	}
 
-}
+// }
 
-$sql="select dish.*,category.category from dish,category where dish.category_id=category.id order by dish.id desc";
+$sql="select * from paymentmethods";
 $res=mysqli_query($con,$sql);
 
 ?>
@@ -30,12 +30,9 @@ $res=mysqli_query($con,$sql);
                     <table id="order-listing" class="table">
                       <thead>
                         <tr>
-                            <th width="10%">STT</th>
-                            <th width="15%">NAME</th>
-                            <th width="25%">Dish</th>
-							<th width="15%">Image</th>
-							<th width="15%">Added On</th>
-                            <th width="20%">Actions</th>
+                            <th width="5%">STT</th>
+                            <th width=auto>NAME</th>
+                           
                         </tr>
                       </thead>
                       <tbody>
@@ -44,31 +41,10 @@ $res=mysqli_query($con,$sql);
 						while($row=mysqli_fetch_assoc($res)){
 						?>
 						<tr>
-                            <td><?php echo $i?></td>
-                            <td><?php echo $row['category']?></td>
-							<td><?php echo $row['dish']?> (<?php echo strtoupper($row['type'])?>)</td>
-							<td><a target="_blank" href="<?php echo SITE_DISH_IMAGE.$row['image']?>"><img src="<?php echo SITE_DISH_IMAGE.$row['image']?>"/></a></td>
-							<td>
-							<?php 
-							$dateStr=strtotime($row['added_on']);
-							echo date('d-m-Y',$dateStr);
-							?>
-							</td>
-							<td>
-								<a href="manage_dish.php?id=<?php echo $row['id']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
-								<?php
-								if($row['status']==1){
-								?>
-								<a href="?id=<?php echo $row['id']?>&type=deactive"><label class="badge badge-danger hand_cursor">Active</label></a>
-								<?php
-								}else{
-								?>
-								<a href="?id=<?php echo $row['id']?>&type=active"><label class="badge badge-info hand_cursor">Deactive</label></a>
-								<?php
-								}
-								
-								?>
-							</td>
+                            <td><?php echo $row['id']?></td>
+                            <td><?php echo $row['name']?></td>
+							
+							
                            
                         </tr>
                         <?php 

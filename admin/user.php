@@ -32,36 +32,36 @@ $res=mysqli_query($con,$sql);
                             <th width="20%">STT</th>
                             <th width="20%">EMAIL</th>
                             <th width="20%">NAME</th>
-							<th width="20%">PHONE</th>
+						              	<th width="20%">PHONE</th>
                             <th width="20%">ADDRESS</th>
-							<th width="20%">IMG</th>
+						              	<th width="20%">IMAGE</th>
 							<!-- <th width="28%">ACTIONS</th> -->
                         </tr>
                       </thead>
                       <tbody>
                         <?php if(mysqli_num_rows($res)>0){
-						$i=1;
-						while($row=mysqli_fetch_assoc($res)){
-						?>
-						<tr>
+                          $i=1;
+                          while($row=mysqli_fetch_assoc($res)){
+                          ?>
+                          <tr>
                             <td><?php echo $row['id']?></td>
                             <td><?php echo $row['email']?></td>
-							<td><?php echo $row['name']?></td>
-							<td><?php echo $row['phone']?></td>
-							<td><?php echo $row['address']?></td>
-							<td><?php echo $row['img']?></td>
-							
-							<td>
-							
-							</td>
-							
-                           
-                        </tr>
-                        <?php 
-						$i++;
-						} } else { ?>
-						<tr>
-							<td colspan="5">Không tìm thấy dữ liệu</td>
+                            <td><?php echo $row['name']?></td>
+                            <td><?php echo $row['phone']?></td>
+                            <td><?php echo $row['address']?></td>
+                            <td><?php echo $row['img']?></td>
+                            
+                            <td>
+                            
+                            </td>
+                            
+                                        
+                                      </tr>
+                                      <?php 
+                          $i++;
+                          } } else { ?>
+                          <tr>
+			                				<td colspan="5">Không tìm thấy dữ liệu</td>
 						</tr>
 						<?php } ?>
                       </tbody>
