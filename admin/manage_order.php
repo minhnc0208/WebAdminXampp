@@ -74,7 +74,7 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName4" required>IMG</label>
-                      <input type="file" class="form-control" name="img" required value="<?php echo $img?>" accept="image/*">
+                      <input type="file" class="form-control" name="img" required value="<?php echo $img?>"accept="image/*">
                     </div>
                     
                     <button type="submit" class="btn btn-primary mr-2" name="submit">Submit</button>

@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
 		if($id==''){
 			mysqli_query($con,"insert into typefoods(id,name,img) VALUES (id,'$name','$img')");
 		}else{
-			mysqli_query($con,"update typefoods set id='$id', name='$name' where id='$id'");
+			mysqli_query($con,"update typefoods set name='$name', img='$img' where id='$id'");
 		}
 		
 		redirect('category.php');
@@ -56,7 +56,7 @@ try{
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail3" required>IMG</label>
-                      <input type="textbox" class="form-control" placeholder="IMG" name="img"required  value="<?php echo $img?>">
+                      <input type="file" class="form-control" placeholder="IMG" name="img"required  value="<?php echo $img?>" accept="images/*">
                     </div>
                     
                     <button type="submit" class="btn btn-primary mr-2" name="submit">Submit</button>

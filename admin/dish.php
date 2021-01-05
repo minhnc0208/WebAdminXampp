@@ -22,7 +22,7 @@ $res=mysqli_query($con,$sql);
   <div class="card">
             <div class="card-body">
               <h1 class="grid_title">PAYMENT METHODS</h1>
-			  <!-- <a href="manage_dish.php" class="add_link">Add Dish</a> -->
+			  <a href="manage_dish.php" class="add_link">Add Dish</a>
 			  <div class="row grid_box">
 				
                 <div class="col-12">

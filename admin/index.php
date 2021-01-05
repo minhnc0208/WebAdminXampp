@@ -13,7 +13,7 @@
 		  </h1>
 		  <div class="d-flex flex-wrap align-items-center">
 			<div>
-			  <h4 class="font-weight-normal">Total Sale</h4>
+			  <h4 class="font-weight-normal">Total Foods</h4>
 			  
 			</div>
 			<i class="mdi mdi-shopping icon-lg text-primary ml-auto"></i>

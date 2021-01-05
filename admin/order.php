@@ -1,6 +1,22 @@
 <?php 
 include('top.php');
+if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
+	$type=$_GET['type'];
+	$id=$_GET['id'];
+	if($type=='delete'){
+		mysqli_query($con,"delete from foods where id='$id'");
+		redirect('order.php');
+	}
+	// if($type=='active' || $type=='deactive'){
+	// 	$status=1;
+	// 	if($type=='deactive'){
+	// 		$status=0;
+	// 	}
+	// 	mysqli_query($con,"update category set status='$status' where id='$id'");
+	// 	redirect('category.php');
+	// }
 
+}
 $sql="select * from foods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
 
@@ -20,7 +36,8 @@ $res=mysqli_query($con,$sql);
                             <th width="auto">NAME</th>
 							<th width="auto">DESCRIPTION</th>
 							<th width="auto">PRICE</th>
-							<th width="auto">IMG</th>
+							<th width="50%">IMG</th>
+							<th width="auto">ACTIONS</th>
 							<!-- <th width="10%">Payment Type</th>
 							<th width="10%">Payment Status</th>
 							<th width="10%">Order Status</th>
@@ -53,7 +70,11 @@ $res=mysqli_query($con,$sql);
 								
 								<p><?php echo $row['img']?></p>
 							</td>
+							<td>
+							<a href="manage_order.php?id=<?php echo $row['id']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
 							
+							<a href="?id=<?php echo $row['id']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>&nbsp;
+							</td>
                         </tr>
                         <?php 
 						// $i++;
