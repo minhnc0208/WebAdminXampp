@@ -152,12 +152,12 @@ if($cur_path=='' || $cur_path=='index.php'){
             </a>
           </li>
 		  
-		  <li class="nav-item">
+		  <!-- <li class="nav-item">
             <a class="nav-link" href="contact_us.php">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">ADMIN</span>
             </a>
-          </li>
+          </li> -->
 		  <li class="nav-item">
             <a class="nav-link" href="logout.php">
               <i class="mdi mdi-view-headline menu-icon"></i>

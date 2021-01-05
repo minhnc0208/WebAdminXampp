@@ -19,7 +19,7 @@ include('top.php');
 
 // }
 
-$sql="select * from typefoods";
+$sql="select * from typefoods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
 
 ?>
@@ -53,7 +53,7 @@ $res=mysqli_query($con,$sql);
                            
                         </tr>
                         <?php 
-						$i++;
+						// $i++;
 						} } else { ?>
 						<tr>
 							<td colspan="5">Không tìm thấy dữ liệu</td>

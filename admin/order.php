@@ -1,13 +1,14 @@
 <?php 
 include('top.php');
 
-$sql="select * from foods";
+$sql="select * from foods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
 
 ?>
   <div class="card">
             <div class="card-body">
               <h1 class="grid_title">FOODS</h1>
+			  <a href="manage_order.php" class="add_link">ADD FOODS</a>
 			  <div class="row grid_box">
 				
                 <div class="col-12">
@@ -19,6 +20,7 @@ $res=mysqli_query($con,$sql);
                             <th width="auto">NAME</th>
 							<th width="auto">DESCRIPTION</th>
 							<th width="auto">PRICE</th>
+							<th width="auto">IMG</th>
 							<!-- <th width="10%">Payment Type</th>
 							<th width="10%">Payment Status</th>
 							<th width="10%">Order Status</th>
@@ -47,11 +49,14 @@ $res=mysqli_query($con,$sql);
 								
 								<p><?php echo $row['price']?></p>
 							</td>
-							
+							<td>
+								
+								<p><?php echo $row['img']?></p>
+							</td>
 							
                         </tr>
                         <?php 
-						$i++;
+						// $i++;
 						} } else { ?>
 						<tr>
 							<td colspan="6">Không tìm thấy dữ liệu</td>
