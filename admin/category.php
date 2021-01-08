@@ -26,7 +26,7 @@ $res=mysqli_query($con,$sql);
   <div class="card">
             <div class="card-body">
               <h1 class="grid_title">TYPE FOOD MASTER</h1>
-			  <a href="manage_category.php" class="add_link">ADD TYPE FOOD</a>
+			  <a href="manage_category.php" class="btn btn-warning btn-rounded">ADD TYPE FOOD</a>
               <div class="row grid_box">
 				
                 <div class="col-12">
@@ -36,7 +36,7 @@ $res=mysqli_query($con,$sql);
                         <tr>
                             <th width="10%">STT</th>
                             <th width="25%">NAME</th>
-                            <th width="15%">IMG</th>
+                            <th width="25%">IMG</th>
                             <th width="25%">ACTIONS</th>
                             <!-- <th width="25%">Actions</th> -->
                         </tr>
@@ -49,7 +49,7 @@ $res=mysqli_query($con,$sql);
                         <tr>
                             <td><?php echo $row['id']?></td>
                             <td><?php echo $row['name']?></td>
-						              	<td><?php echo $row['img']?></td>
+                            <td><?php echo $row['img']?></td>
                             <td>
                             <a href="manage_category.php?id=<?php echo $row['id']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
                             <a href="?id=<?php echo $row['id']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>&nbsp;

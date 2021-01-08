@@ -19,7 +19,7 @@ include('top.php');
 
 // }
 
-$sql="select * from orderfoods";
+$sql="select * from orderfoods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
 
 ?>

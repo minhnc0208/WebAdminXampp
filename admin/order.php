@@ -20,11 +20,12 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
 $sql="select * from foods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
 
+
 ?>
   <div class="card">
             <div class="card-body">
               <h1 class="grid_title">FOODS</h1>
-			  <a href="manage_order.php" class="add_link">ADD FOODS</a>
+			  <a href="manage_order.php" class="btn btn-warning btn-rounded">ADD FOODS</a>
 			  <div class="row grid_box">
 				
                 <div class="col-12">

@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $description=$_POST['description'];
     $price=$_POST['price'];
-	$img=$_POST['img'];
+	  $img=$_POST['img'];
 	// $added_on=date('Y-m-d h:i:s');
 	
 	if($id == ''){
@@ -78,11 +78,12 @@ if(isset($_POST['submit'])){
                     </div>
                     
                     <button type="submit" class="btn btn-primary mr-2" name="submit">Submit</button>
+                    <button type="button" class="btn btn-dark"><a href="order.php">Back</a></button>
                   </form>
                 </div>
               </div>
             </div>
             
 		 </div>
-        
+    
 <?php include('footer.php');?>

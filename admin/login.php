@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>ĐĂNG NHẬP</title>
+  <title>LOGIN</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/css/vendor.bundle.base.css">
@@ -48,16 +48,16 @@ if(isset($_POST['submit'])){
               <div class="brand-logo text-center">
                 <img src="assets/images/logo1.png" alt="logo">
               </div>
-              <h6 class="font-weight-light">Đăng nhập với Admin.</h6>
+              <h6 class="font-weight-light">LOGIN WITH ADMIN.</h6>
               <form class="pt-3" method="post">
                 <div class="form-group">
-                  <input type="textbox" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Tên đăng nhập" name="admin" required>
+                  <input type="textbox" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" name="admin" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Mật khẩu"  name="password" required>
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password"  name="password" required>
                 </div>
                 <div class="mt-3">
-                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="ĐĂNG NHẬP" name="submit"/>
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="LOGIN" name="submit"/>
                 </div>
                 
               </form>

@@ -22,7 +22,7 @@ $res=mysqli_query($con,$sql);
   <div class="card">
             <div class="card-body">
               <h1 class="grid_title">RATING</h1>
-			  <a href="manage_delivery_boy.php" class="add_link">Add Delivery</a>
+			  <!-- <a href="manage_delivery_boy.php" class="add_link">Add Delivery</a> -->
 			  <div class="row grid_box">
 				
                 <div class="col-12">

@@ -1,138 +1,113 @@
-<?php include('top.php');?>
+<?php include('top.php');
+include('../database.inc.php');
+?>
 
 <div class="row">
-	<div class="col-md-6 col-lg-3 grid-margin stretch-card">
-	  <div class="card">
-		<div class="card-body">
-		  <h1 class="font-weight-light mb-4">
-			<?php 
-			$start=date('Y-m-d'). ' 00-00-00';
-			$end=date('Y-m-d'). ' 23-59-59';
-			echo getSale($start,$end);
-			?>
-		  </h1>
-		  <div class="d-flex flex-wrap align-items-center">
-			<div>
-			  <h4 class="font-weight-normal">Total Foods</h4>
-			  
-			</div>
-			<i class="mdi mdi-shopping icon-lg text-primary ml-auto"></i>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-6 col-lg-3 grid-margin stretch-card">
-	  <div class="card">
-		<div class="card-body">
-		  <h1 class="font-weight-light mb-4">
-		    <?php 
-			$start=strtotime(date('Y-m-d'));
-			$start=strtotime("-7 day",$start);
-			$start=date('Y-m-d',$start);
-			$end=date('Y-m-d'). ' 23-59-59';
-			echo getSale($start,$end);
-			?>
-		  </h1>
-		  <div class="d-flex flex-wrap align-items-center">
-			<div>
-			  <h4 class="font-weight-normal">7 Days Sale</h4>
-			  <p class="text-muted mb-0 font-weight-light">Last 7 Days Sale</p>
-			</div>
-			<i class="mdi mdi-shopping icon-lg text-danger ml-auto"></i>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-6 col-lg-3 grid-margin stretch-card">
-	  <div class="card">
-		<div class="card-body">
-		  <h1 class="font-weight-light mb-4">
-		  <?php 
-			$start=strtotime(date('Y-m-d'));
-			$start=strtotime("-30 day",$start);
-			$start=date('Y-m-d',$start);
-			$end=date('Y-m-d'). ' 23-59-59';
-			echo getSale($start,$end);
-			?>
-		  </h1>
-		  <div class="d-flex flex-wrap align-items-center">
-			<div>
-			  <h4 class="font-weight-normal">30 Days Sale</h4>
-			  <p class="text-muted mb-0 font-weight-light">Last 30 Days Sale</p>
-			</div>
-			<i class="mdi mdi-shopping icon-lg text-info ml-auto"></i>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-6 col-lg-3 grid-margin stretch-card">
-	  <div class="card">
-		<div class="card-body">
-		  <h1 class="font-weight-light mb-4">
-		  <?php 
-			$start=strtotime(date('Y-m-d'));
-			$start=strtotime("-365 day",$start);
-			$start=date('Y-m-d',$start);
-			$end=date('Y-m-d'). ' 23-59-59';
-			echo getSale($start,$end);
-			?>
-		  </h1>
-		  <div class="d-flex flex-wrap align-items-center">
-			<div>
-			  <h4 class="font-weight-normal">365 Days Sale</h4>
-			  <p class="text-muted mb-0 font-weight-light">Last 365 Days Sale</p>
-			</div>
-			<i class="mdi mdi-shopping icon-lg text-success ml-auto"></i>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-6 col-lg-3 grid-margin stretch-card">
-	  <div class="card">
-		<div class="card-body">
-		  <h1 class="font-weight-light mb-4">
-			<?php 
-			$row=mysqli_fetch_assoc(mysqli_query($con,"SELECT count(order_detail.dish_details_id) as t, dish.dish from order_detail,dish_details,dish WHERE order_detail.dish_details_id=dish_details.id and dish_details.dish_id=dish.id group by order_detail.dish_details_id order by count(order_detail.dish_details_id) desc limit 1"));
-			echo $row['dish'];
-			echo "<br/>";
-			echo '<span style="font-size:15px;">('.$row['t'].' Times)</span>';
-			?>
-		  </h1>
-		  <div class="d-flex flex-wrap align-items-center">
-			<div>
-			  <h4 class="font-weight-normal">Most Liked Dish</h4>
-			  
-			</div>
-			<i class="mdi mdi-food icon-lg text-primary ml-auto"></i>
-		  </div>
-		</div>
-	  </div>
-	</div>
 	
-	<div class="col-md-6 col-lg-3 grid-margin stretch-card">
-	  <div class="card">
-		<div class="card-body">
-		  <h1 class="font-weight-light mb-4">
-			<?php 
-			$row=mysqli_fetch_assoc(mysqli_query($con,"select count(order_master.user_id) as t,user.name from order_master,user WHERE order_master.user_id=user.id GROUP BY order_master.user_id order by count(order_master.user_id) desc limit 1"));
-			echo $row['name'];
-			echo "<br/>";
-			echo '<span style="font-size:15px;">('.$row['t'].' Times)</span>';
-			?>
-		  </h1>
-		  <div class="d-flex flex-wrap align-items-center">
-			<div>
-			  <h4 class="font-weight-normal">Most Active User</h4>
-			  
-			</div>
-			<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+	
+	
+	
+
+
+<!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-primary shadow h-100 py-2">
+	<div class="card-body">
+	  <div class="row no-gutters align-items-center">
+		<div class="col mr-2">
+		  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User Register</div>
+		 	<br>
+		  <div class="h5 mb-0 font-weight-bold text-gray-800">
+		  
+
+			<?php
+				
+				$query = "SELECT id from users ORDER BY id";
+				$query_run = mysqli_query($con,$query);
+
+
+				$row = mysqli_num_rows($query_run);
+
+				echo '<h4> ' .$row. ' Users </h4> ';
+			 ?>
+
+		  
+		  
+		  
 		  </div>
+		</div>
+		<div class="col-auto">
+		  <i class="fas fa-calendar fa-2x text-gray-300"></i>
 		</div>
 	  </div>
 	</div>
   </div>
+</div>
+
+<!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-success shadow h-100 py-2">
+	<div class="card-body">
+	  <div class="row no-gutters align-items-center">
+		<div class="col mr-2">
+		  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
+		  <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+		</div>
+		<div class="col-auto">
+		  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-info shadow h-100 py-2">
+	<div class="card-body">
+	  <div class="row no-gutters align-items-center">
+		<div class="col mr-2">
+		  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+		  <div class="row no-gutters align-items-center">
+			<div class="col-auto">
+			  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+			</div>
+			<div class="col">
+			  <div class="progress progress-sm mr-2">
+				<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="col-auto">
+		  <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<!-- Pending Requests Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+  <div class="card border-left-warning shadow h-100 py-2">
+	<div class="card-body">
+	  <div class="row no-gutters align-items-center">
+		<div class="col mr-2">
+		  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
+		  <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+		</div>
+		<div class="col-auto">
+		  <i class="fas fa-comments fa-2x text-gray-300"></i>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+</div>
+	
+
   <?php
-  $sql="select order_master.*,order_status.order_status as order_status_str from order_master,order_status where order_master.order_status=order_status.id order by order_master.id desc limit 5";
+$sql="select * from orderfoods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
   ?>
   <div class="row">
@@ -144,14 +119,14 @@ $res=mysqli_query($con,$sql);
 			<table class="table table-hover">
 			  <thead>
 				<tr>
-				   <th width="5%">Order Id</th>
-					<th width="20%">Name/Email/Mobile</th>
-					<th width="20%">Address/Zipcode</th>
-					<th width="5%">Price</th>
-					<th width="10%">Payment Type</th>
-					<th width="10%">Payment Status</th>
-					<th width="10%">Order Status</th>
-					<th width="15%">Added On</th>
+				   	<th width="5%">ID</th>
+					<th width=auto>ID USER</th>
+					<th width=auto>ID PAYMENT</th>
+					<th width=auto>ID FOOD</th>
+					<th width=auto>DATE</th>
+					<th width=auto>TOTAL</th>
+					<th width=auto>STATUS</th>
+					<!-- <th width="15%">Added On</th> -->
 				</tr>
 			  </thead>
 			  <tbody>
@@ -162,44 +137,28 @@ $res=mysqli_query($con,$sql);
 						<tr>
                             <td>
 								<div class="div_order_id">
-									<a href="order_detail.php?id=<?php echo $row['id']?>"><?php echo $row['id']?></a>
+									<a href="banner.php?id=<?php echo $row['id']?>"><?php echo $row['id']?></a>
 								</div>
 							</td>
-                            <td>
-								<p><?php echo $row['name']?></p>
-								<p><?php echo $row['email']?></p>
-								<p><?php echo $row['mobile']?></p>
-							<td>
-								<p><?php echo $row['address']?></p>
-								<p><?php echo $row['zipcode']?></p>
-							</td>
-							<td style="font-size:14px;"><?php echo $row['total_price']?><br/>
-								<?php
-								if($row['coupon_code']!=''){
-								?>
-								<?php echo $row['coupon_code']?><br/>
-								<?php echo $row['final_price']?>
-								<?php } ?>
 							
-							</td>
-							<td><?php echo $row['payment_type']?></td>
-							<td>
-								<div class="payment_status payment_status_<?php echo $row['payment_status']?>"><?php echo ucfirst($row['payment_status'])?></div>
-							</td>
-							<td><?php echo $row['order_status_str']?></td>
-							<td>
-							<?php 
-							$dateStr=strtotime($row['added_on']);
-							echo date('d-m-Y h:s',$dateStr);
-							?>
-							</td>
+							<td><?php echo $row['iduser']?></td>
+							<td><?php echo $row['idpayment']?></td>
+							<td><?php echo $row['idfood']?></td>
+							<td><?php echo $row['date']?></td>
+							<td><?php echo $row['total']?></td>
+							<td><?php echo $row['status']?></td>
+							
+                           
+							
+							
+							
 							
                         </tr>
                         <?php 
 						$i++;
 						} } else { ?>
 						<tr>
-							<td colspan="6">Không tìm thấy dữ liệu</td>
+							<td colspan="6">No data found</td>
 						</tr>
 						<?php } ?>
                       </tbody>

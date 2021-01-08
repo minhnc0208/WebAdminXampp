@@ -60,7 +60,9 @@ try{
                     </div>
                     
                     <button type="submit" class="btn btn-primary mr-2" name="submit">Submit</button>
-                  </form>
+					<button type="button" class="btn btn-dark"><a href="category.php">Back</a></button>
+
+				  </form>
                 </div>
               </div>
             </div>

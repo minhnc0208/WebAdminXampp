@@ -104,7 +104,7 @@ if($cur_path=='' || $cur_path=='index.php'){
           <li class="nav-item">
             <a class="nav-link" href="index.php">
               <i class="mdi mdi-view-quilt menu-icon"></i>
-              <span class="menu-title">HOME</span>
+              <span class="menu-title">DASHBOARD</span>
             </a>
           </li>
 		  <li class="nav-item">
@@ -125,16 +125,16 @@ if($cur_path=='' || $cur_path=='index.php'){
               <span class="menu-title">USERS</span>
             </a>
           </li>
-		  <li class="nav-item">
-            <a class="nav-link" href="delivery_boy.php">
-              <i class="mdi mdi-view-headline menu-icon"></i>
-              <span class="menu-title">RATING</span>
-            </a>
-          </li>
 		   <li class="nav-item">
             <a class="nav-link" href="coupon_code.php">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">VOUCHERS</span>
+            </a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="delivery_boy.php">
+              <i class="mdi mdi-view-headline menu-icon"></i>
+              <span class="menu-title">RATING</span>
             </a>
           </li>
 		  
@@ -161,7 +161,7 @@ if($cur_path=='' || $cur_path=='index.php'){
 		  <li class="nav-item">
             <a class="nav-link" href="logout.php">
               <i class="mdi mdi-view-headline menu-icon"></i>
-              <span class="menu-title">ĐĂNG XUẤT</span>
+              <span class="menu-title">LOGOUT</span>
             </a>
           </li>
 		  

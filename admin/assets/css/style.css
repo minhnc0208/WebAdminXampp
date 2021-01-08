@@ -19478,7 +19478,9 @@ code {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-left: 235px;
 }
+
 
 .footer a {
   color: #5e2572;
