@@ -29,13 +29,13 @@ $res=mysqli_query($con,$sql);
                     <table id="order-listing" class="table">
                       <thead>
                         <tr>
-                            <th width="20%">STT</th>
-                            <th width="20%">EMAIL</th>
-                            <th width="20%">NAME</th>
-						              	<th width="20%">PHONE</th>
-                            <th width="20%">ADDRESS</th>
-						              	<th width="20%">IMAGE</th>
-							<!-- <th width="28%">ACTIONS</th> -->
+                            <th width="5%">STT</th>
+                            <th width="auto">EMAIL</th>
+                            <th width="auto">NAME</th>
+						              	<th width="auto">PHONE</th>
+                            <th width="auto">ADDRESS</th>
+						              	<th width="auto">IMAGE</th>
+						
                         </tr>
                       </thead>
                       <tbody>
@@ -51,19 +51,16 @@ $res=mysqli_query($con,$sql);
                             <td><?php echo $row['address']?></td>
                             <td><?php echo $row['img']?></td>
                             
-                            <td>
                             
-                            </td>
                             
-                                        
-                                      </tr>
-                                      <?php 
+                           
+                          <?php 
                           $i++;
                           } } else { ?>
-                          <tr>
+                           <tr>
 			                				<td colspan="5">Không tìm thấy dữ liệu</td>
-						</tr>
-						<?php } ?>
+					                	</tr>
+					              	<?php } ?>
                       </tbody>
                     </table>
                   </div>
