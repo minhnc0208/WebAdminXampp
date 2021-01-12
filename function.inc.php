@@ -921,11 +921,11 @@ function getWalletAmt($uid){
 
 function getSale($start,$end){
 	global $con;
-	$sql="select sum(final_price) as final_price from order_master where added_on between '$start' and '$end' and order_status=4";
+	$sql="select sum(id) as id from foods where added_on between '$start' and '$end' and order_status=4";
 	$res=mysqli_query($con,$sql);
 	
 	while($row=mysqli_fetch_assoc($res)){
-		return $row['final_price'].' Rs';
+		return $row['id'].' Rs';
 	}
 }
 ?>
