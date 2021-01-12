@@ -40,7 +40,7 @@ $res=mysqli_query($con,$sql);
                           <tr>
                             <td><?php echo $row['id']?></td>
                             <td><?php echo $row['name']?></td>
-                            <td><?php echo $row['img']?></td>
+                          
                             <td>
                             <a href="manage_dish.php?id=<?php echo $row['id']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
                             <a href="?id=<?php echo $row['id']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>&nbsp;

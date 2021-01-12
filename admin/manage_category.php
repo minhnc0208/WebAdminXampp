@@ -1,5 +1,6 @@
 <?php 
 include('top.php');
+// $regex = "/^[a-zA-Z\d]+@[a-zA-Z\d]+\.[a-zA-Z\d\d.]{2,]+$/";
 $msg="";
 // $category="";
 // $order_number="";
@@ -36,11 +37,7 @@ if(isset($_POST['submit'])){
 		redirect('category.php');
 	}
 }
-try{
-	
-}catch(Exception $e ){
-	echo $e->getMessage();
-}
+
 ?>
 
 <div class="row">
