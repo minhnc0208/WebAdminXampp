@@ -28,7 +28,7 @@ $res=mysqli_query($con,$sql);
                         <tr>
                             <th width="5%">STT</th>
                             <th width=auto>NAME</th>
-                            <th width=auto>IMG</th>
+                            <!-- <th width=auto>IMG</th> -->
                             <th width=auto>ACTIONS</th>
                         </tr>
                       </thead>

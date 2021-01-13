@@ -52,7 +52,9 @@ if($cur_path=='' || $cur_path=='index.php'){
   <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css"> 
+   -->
+   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 </head>
 <body class="sidebar-light">
   <div class="container-scroller">

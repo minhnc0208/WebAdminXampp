@@ -32,12 +32,14 @@ include('../database.inc.php');
 			 ?>
 
 		  
-		  
+	
 		  
 		  </div>
+		  <br>
+		
 		</div>
 		<div class="col-auto">
-		  <i class="fas fa-calendar fa-2x text-gray-300"></i>
+		<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
 		</div>
 	  </div>
 	</div>
@@ -64,9 +66,10 @@ include('../database.inc.php');
 				echo '<h4> ' .$row. ' FOODS </h4> ';
 			 ?>
 		  </div>
+		  <br>
 		</div>
 		<div class="col-auto">
-		  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+		<i class="mdi mdi-food icon-lg text-primary ml-auto"></i>
 		</div>
 	  </div>
 	</div>

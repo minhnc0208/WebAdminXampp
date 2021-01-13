@@ -1,23 +1,26 @@
 <?php 
 include('top.php');
+$id ="";
+if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
+	$type=$_GET['type'];
+	$id=$_GET['id'];
+	if($type=='view'){
+    // mysqli_query($con,"delete from orderfoods where id='$id'");
+    mysqli_query($con,"SELECT id, SUM(total) AS Total
+    FROM orderfoods WHERE id = $id
+    GROUP BY id");
+		redirect('bannerdetails.php');
+	}
+// 	// if($type=='active' || $type=='deactive'){
+// 	// 	$status=1;
+// 	// 	if($type=='deactive'){
+// 	// 		$status=0;
+// 	// 	}
+// 	// 	mysqli_query($con,"update banner set status='$status' where id='$id'");
+// 	// 	redirect('banner.php');
+// 	// }
 
-// if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
-// 	$type=get_safe_value($_GET['type']);
-// 	$id=get_safe_value($_GET['id']);
-// 	if($type=='delete'){
-// 		mysqli_query($con,"delete from banner where id='$id'");
-// 		redirect('banner.php');
-// 	}
-// 	if($type=='active' || $type=='deactive'){
-// 		$status=1;
-// 		if($type=='deactive'){
-// 			$status=0;
-// 		}
-// 		mysqli_query($con,"update banner set status='$status' where id='$id'");
-// 		redirect('banner.php');
-// 	}
-
-// }
+ }
 
 $sql="select * from orderfoods ORDER BY id DESC";
 $res=mysqli_query($con,$sql);
@@ -35,12 +38,13 @@ $res=mysqli_query($con,$sql);
                       <thead>
                         <tr>
                             <th width="10%">STT</th>
-							<th width="10%">ID USER</th>
+							              <th width="10%">ID USER</th>
                             <th width="15%">ID PAYMENT</th>
                             <th width="25%">ID FOOD</th>
                             <th width="25%">DATE</th>
-							<th width="25%">TOTAL</th>
-							<th width="25%">STATUS</th>
+                            <th width="25%">TOTAL</th>
+                            <th width="25%">STATUS</th>
+                            <th width=auto>ACTIONS</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -55,12 +59,15 @@ $res=mysqli_query($con,$sql);
 							<td><?php echo $row['idfood']?></td>
 							<td><?php echo $row['date']?></td>
 							<td><?php echo $row['total']?></td>
-							<td><?php echo $row['status']?></td>
-                            
-							
+              <td><?php echo $row['status']?></td>
+                    <td>
+                    <a href="manage_banner.php?id=<?php echo $row['id']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
+                    <a href="?id=<?php echo $row['id']?>&type=view"><label class="badge badge-danger delete_red hand_cursor">View</label></a>&nbsp;
+                    </td>        
+
                            
-                        </tr>
-                        <?php 
+            </tr>
+            <?php 
 						$i++;
 						} } else { ?>
 						<tr>
