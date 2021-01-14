@@ -53,7 +53,9 @@ if($cur_path=='' || $cur_path=='index.php'){
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="assets/css/style.css"> 
-   -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+   
    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 </head>
 <body class="sidebar-light">

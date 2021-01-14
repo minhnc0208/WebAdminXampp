@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
 		if($id==''){
 			mysqli_query($con,"insert into orderfoods(id,iduser,idpayment,date,total,quantity,status) VALUES (id,iduser,idpayment,idfood,'$date',total,quantity,status)");
 		}else{
-			mysqli_query($con,"update orderfoods set status='$status' where id='$id'");
+			mysqli_query($con,"update orderfoods set status='1' where id='$id'");
 		}
 		
 		redirect('banner.php');

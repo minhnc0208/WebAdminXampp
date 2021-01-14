@@ -36,7 +36,7 @@ include('../database.inc.php');
 		  
 		  </div>
 		  <br>
-		
+		  <br>
 		</div>
 		<div class="col-auto">
 		<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
@@ -143,6 +143,7 @@ include('../database.inc.php');
 	</div>
   </div>
 </div>
+<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 </div>
 	
 
@@ -207,6 +208,7 @@ $res=mysqli_query($con,$sql);
 		</div>
 	  </div>
 	</div>
+	
   </div>
   
 
