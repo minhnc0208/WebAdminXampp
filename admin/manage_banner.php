@@ -11,7 +11,7 @@ $id="";
 // $image_status='required';
 // $image_error="";
 if(isset($_GET['id']) && $_GET['id']>0){
-	$id=get_safe_value($_GET['id']);
+	$id=$_GET['id'];
 	$row=mysqli_fetch_assoc(mysqli_query($con,"select * from orderfoods where id='$id'"));
 	$iduser=$row['iduser'];
 	$idpayment=$row['idpayment'];

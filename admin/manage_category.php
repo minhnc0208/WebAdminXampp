@@ -1,15 +1,14 @@
 <?php 
 include('top.php');
-// $regex = "/^[a-zA-Z\d]+@[a-zA-Z\d]+\.[a-zA-Z\d\d.]{2,]+$/";
+
 $msg="";
-// $category="";
-// $order_number="";
+
 $name ="";
 $img = "";
 $id="";
 $image_text ="";
 if(isset($_GET['id']) && $_GET['id']>0){
-	$id=get_safe_value($_GET['id']);
+	$id=$_GET['id'];
 	$row=mysqli_fetch_assoc(mysqli_query($con,"select * from typefoods where id='$id'"));
 	$name=$row['name'];
 	$img=$row['img'];

@@ -20,7 +20,7 @@ $res=mysqli_query($con,$sql);
   <div class="card">
             <div class="card-body">
               <h1 class="grid_title">ORDER FOOD</h1>
-			  <a href="manage_banner.php" class="add_link">Add Banner</a>
+			  <!-- <a href="manage_banner.php" class="add_link">Add Banner</a> -->
               <div class="row grid_box">
 				
                 <div class="col-12">
@@ -52,6 +52,7 @@ $res=mysqli_query($con,$sql);
 							<td><?php echo $row['total']?></td>
               <td><?php echo $row['note']?></td>
                     <td>
+                    
                     <a href="?id=<?php echo $row['id']?>&type=view"><label class="badge badge-success hand_cursor">Commit</label></a>&nbsp;
                     
                     </td>        
@@ -72,5 +73,5 @@ $res=mysqli_query($con,$sql);
               </div>
             </div>
           </div>
-        
+      
 <?php include('footer.php');?>

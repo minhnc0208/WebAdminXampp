@@ -129,12 +129,12 @@ if($cur_path=='' || $cur_path=='index.php'){
               <span class="menu-title">USERS</span>
             </a>
           </li>
-		   <li class="nav-item">
+		   <!-- <li class="nav-item">
             <a class="nav-link" href="coupon_code.php">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">VOUCHERS</span>
             </a>
-          </li>
+          </li> -->
 		  <li class="nav-item">
             <a class="nav-link" href="delivery_boy.php">
               <i class="mdi mdi-view-headline menu-icon"></i>
