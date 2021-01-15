@@ -2,27 +2,26 @@
 session_start();
 include('../database.inc.php');
 // include('../function.inc.php');
-$msg="";
-if(isset($_POST['submit'])){
-	$username=$_POST['admin'];
-	$password=$_POST['password'];
-	
-	$sql="select * from admin where admin='$username' and password='$password'";
-	$res=mysqli_query($con,$sql);
-	if(mysqli_num_rows($res)>0){
-		$row=mysqli_fetch_assoc($res);
-		$_SESSION['IS_LOGIN']='yes';
-		$_SESSION['ADMIN_USER']=$row['admin'];
+$msg = "";
+if (isset($_POST['submit'])) {
+  $username = $_POST['admin'];
+  $password = $_POST['password'];
+
+  $sql = "select * from admin where admin='$username' and password='$password'";
+  $res = mysqli_query($con, $sql);
+  if (mysqli_num_rows($res) > 0) {
+    $row = mysqli_fetch_assoc($res);
+    $_SESSION['IS_LOGIN'] = 'yes';
+    $_SESSION['ADMIN_USER'] = $row['admin'];
     require_once 'index.php';
-    
-	}else{
-		$msg="Mời nhập lại tài khoản Admin";
+  } else {
+    $msg = "Mời nhập lại tài khoản Admin";
   }
-  
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -38,6 +37,7 @@ if(isset($_POST['submit'])){
   <!-- inject:css -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body class="sidebar-light">
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -54,14 +54,14 @@ if(isset($_POST['submit'])){
                   <input type="textbox" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" name="admin" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password"  name="password" required>
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" name="password" required>
                 </div>
                 <div class="mt-3">
-                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="LOGIN" name="submit"/>
+                  <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="LOGIN" name="submit" />
                 </div>
-                
+
               </form>
-			  <div class="login_msg"><?php echo $msg?></div>
+              <div class="login_msg"><?php echo $msg ?></div>
             </div>
           </div>
         </div>
@@ -89,4 +89,5 @@ if(isset($_POST['submit'])){
   <script src="assets/js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
+
 </html>

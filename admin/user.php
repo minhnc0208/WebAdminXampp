@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('top.php');
 
 // if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
@@ -15,58 +15,59 @@ include('top.php');
 
 // }
 
-$sql="select * from users ";
-$res=mysqli_query($con,$sql);
+$sql = "select * from users ";
+$res = mysqli_query($con, $sql);
 
 ?>
-  <div class="card">
-            <div class="card-body">
-              <h1 class="grid_title">User</h1>
-			  <div class="row grid_box">
-				
-                <div class="col-12">
-                  <div class="table-responsive">
-                    <table id="order-listing" class="table">
-                      <thead>
-                        <tr>
-                            <th width="5%">STT</th>
-                            <th width="auto">EMAIL</th>
-                            <th width="auto">NAME</th>
-						              	<th width="auto">PHONE</th>
-                            <th width="auto">ADDRESS</th>
-						              	<th width="auto">IMAGE</th>
-						
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php if(mysqli_num_rows($res)>0){
-                          $i=1;
-                          while($row=mysqli_fetch_assoc($res)){
-                          ?>
-                          <tr>
-                            <td><?php echo $row['id']?></td>
-                            <td><?php echo $row['email']?></td>
-                            <td><?php echo $row['name']?></td>
-                            <td><?php echo $row['phone']?></td>
-                            <td><?php echo $row['address']?></td>
-                            <td><?php echo $row['img']?></td>
-                            
-                            
-                            
-                           
-                          <?php 
-                          $i++;
-                          } } else { ?>
-                           <tr>
-			                				<td colspan="5">Không tìm thấy dữ liệu</td>
-					                	</tr>
-					              	<?php } ?>
-                      </tbody>
-                    </table>
-                  </div>
-				</div>
-              </div>
-            </div>
-          </div>
-        
-<?php include('footer.php');?>
+<div class="card">
+  <div class="card-body">
+    <h1 class="grid_title">User</h1>
+    <div class="row grid_box">
+
+      <div class="col-12">
+        <div class="table-responsive">
+          <table id="order-listing" class="table">
+            <thead>
+              <tr>
+                <th width="5%">STT</th>
+                <th width="auto">EMAIL</th>
+                <th width="auto">NAME</th>
+                <th width="auto">PHONE</th>
+                <th width="auto">ADDRESS</th>
+                <th width="auto">IMAGE</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <?php if (mysqli_num_rows($res) > 0) {
+                $i = 1;
+                while ($row = mysqli_fetch_assoc($res)) {
+              ?>
+                  <tr>
+                    <td><?php echo $row['id'] ?></td>
+                    <td><?php echo $row['email'] ?></td>
+                    <td><?php echo $row['name'] ?></td>
+                    <td><?php echo $row['phone'] ?></td>
+                    <td><?php echo $row['address'] ?></td>
+                    <td><?php echo $row['img'] ?></td>
+
+
+
+
+                  <?php
+                  $i++;
+                }
+              } else { ?>
+                  <tr>
+                    <td colspan="5">Không tìm thấy dữ liệu</td>
+                  </tr>
+                <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php include('footer.php'); ?>
