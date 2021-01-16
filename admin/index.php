@@ -182,7 +182,10 @@ if (mysqli_num_rows($res) > 0) {
 						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL DAY</div>
 						<br>
 						<div class="card-title">
-							Day : <?php echo number_format($totalDay); ?>
+						<h4>
+						Day : <?php echo number_format($totalDay); ?>
+
+						</h4>
 							
 						</div>
 					</div>
@@ -204,7 +207,10 @@ if (mysqli_num_rows($res) > 0) {
 						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL MONTH</div>
 						<br>
 						<div class="card-title">
+						<h4>
 						Month: <?php echo number_format($totalMonth); ?>
+
+						</h4>
 							
 						</div>
 					</div>
@@ -223,8 +229,10 @@ if (mysqli_num_rows($res) > 0) {
 						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL YEAR</div>
 						<br>
 						<div class="card-title">
+						<h4>
+						
 						Year: <?php echo number_format($totalYear); ?>
-							
+						</h4>	
 						</div>
 					</div>
 					<div class="col-auto">
@@ -244,70 +252,7 @@ if (mysqli_num_rows($res) > 0) {
 </div>
 
 
-<?php
-$sql = "select * from orderfoods ORDER BY id DESC LIMIT 5";
-$res = mysqli_query($con, $sql);
-?>
-<div class="row">
-	<div class="col-12">
-		<div class="card">
-			<div class="card-body">
-				<h4 class="card-title">Latest 5 Order</h4>
-				<div class="table-responsive">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th width="5%">ID</th>
-								<th width=auto>ID USER</th>
-								<th width=auto>ID PAYMENT</th>
-								<th width=auto>ID FOOD</th>
-								<th width=auto>DATE</th>
-								<th width=auto>TOTAL</th>
-								<th width=auto>STATUS</th>
-								<!-- <th width="15%">Added On</th> -->
-							</tr>
-						</thead>
-						<tbody>
-							<?php if (mysqli_num_rows($res) > 0) {
-								$i = 1;
-								while ($row = mysqli_fetch_assoc($res)) {
-							?>
-									<tr>
-										<td>
-											<div class="div_order_id">
-												<a href="banner.php?id=<?php echo $row['id'] ?>"><?php echo $row['id'] ?></a>
-											</div>
-										</td>
 
-										<td><?php echo $row['iduser'] ?></td>
-										<td><?php echo $row['idpayment'] ?></td>
-										<td><?php echo $row['idfood'] ?></td>
-										<td><?php echo $row['date'] ?></td>
-										<td><?php echo $row['total'] ?></td>
-										<td><?php echo $row['status'] ?></td>
-
-
-
-
-
-
-									</tr>
-								<?php
-									$i++;
-								}
-							} else { ?>
-								<tr>
-									<td colspan="6">No data found</td>
-								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
 <script>
     $(document).ready(function() {
         showChart();
