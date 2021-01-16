@@ -1,5 +1,35 @@
 <?php include('top.php');
 include('../database.inc.php');
+$day = date('d');
+$month = date('m');
+$year = date('Y');
+$sql="SELECT idfood, SUM(total) as total FROM orderfoods WHERE Day(date) = {$day} And Month(date) = {$month} and Year(date) = {$year} and status = 2 GROUP BY idfood ";
+$res=mysqli_query($con,$sql);
+$foods = [];
+$totalDay = 0;
+$totalMonth = 0;
+$totalYear = 0;
+if (mysqli_num_rows($res) > 0) {
+    while($row = mysqli_fetch_assoc($res)) {
+        $totalDay += $row['total'];
+    }
+}
+
+$sql="SELECT idfood, SUM(total) as total FROM orderfoods WHERE Month(date) = {$month} and Year(date) = {$year} and status = 2 GROUP BY idfood";
+$res=mysqli_query($con,$sql);
+if (mysqli_num_rows($res) > 0) {
+    while($row = mysqli_fetch_assoc($res)) {
+        $totalMonth += $row['total'];
+    }
+}
+
+$sql="SELECT idfood, SUM(total) as total FROM orderfoods WHERE Year(date) = {$year} and status = 2 GROUP BY idfood";
+$res=mysqli_query($con,$sql);
+if (mysqli_num_rows($res) > 0) {
+    while($row = mysqli_fetch_assoc($res)) {
+        $totalYear += $row['total'];
+    }
+}
 ?>
 
 <div class="row">
@@ -143,12 +173,79 @@ include('../database.inc.php');
 			</div>
 		</div>
 	</div>
-	<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+	<br>
+	<div class="col-xl-3 col-md-6 mb-4">
+		<div class="card border-left-warning shadow h-100 py-2">
+			<div class="card-body">
+				<div class="row no-gutters align-items-center">
+					<div class="col mr-2">
+						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL DAY</div>
+						<br>
+						<div class="card-title">
+							Day : <?php echo number_format($totalDay); ?>
+							
+						</div>
+					</div>
+					<div class="col-auto">
+					<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<div class="col-xl-3 col-md-6 mb-4">
+		<div class="card border-left-warning shadow h-100 py-2">
+			<div class="card-body">
+				<div class="row no-gutters align-items-center">
+					<div class="col mr-2">
+						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL MONTH</div>
+						<br>
+						<div class="card-title">
+						Month: <?php echo number_format($totalMonth); ?>
+							
+						</div>
+					</div>
+					<div class="col-auto">
+					<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6 mb-4">
+		<div class="card border-left-warning shadow h-100 py-2">
+			<div class="card-body">
+				<div class="row no-gutters align-items-center">
+					<div class="col mr-2">
+						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL YEAR</div>
+						<br>
+						<div class="card-title">
+						Year: <?php echo number_format($totalYear); ?>
+							
+						</div>
+					</div>
+					<div class="col-auto">
+					<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="card-body">
+		<div class="col-12">
+			<canvas id="myChart" width="400" height="200"></canvas>
+		</div>
+	</div>
 </div>
 
 
 <?php
-$sql = "select * from orderfoods ORDER BY id DESC";
+$sql = "select * from orderfoods ORDER BY id DESC LIMIT 5";
 $res = mysqli_query($con, $sql);
 ?>
 <div class="row">
@@ -211,6 +308,39 @@ $res = mysqli_query($con, $sql);
 	</div>
 
 </div>
+<script>
+    $(document).ready(function() {
+        showChart();
+    });
 
+    function showChart() {
+        $.post("handle_data_order.php",
+            function(data, status){
+                data = JSON.parse(data);
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.month ,
+                        datasets: [{
+                            label: 'MONEY',
+                            data: data.data,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            fill: false,
+
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+            });
+    }
+</script>
 
 <?php include('footer.php'); ?>

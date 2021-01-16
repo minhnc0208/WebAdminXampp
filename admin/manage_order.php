@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 <div class="row">
-  <h1 class="grid_title ml10 ml15">ADD FOODS </h1>
+  <h1 class="grid_title ml10 ml15">FOODS </h1>
   <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">

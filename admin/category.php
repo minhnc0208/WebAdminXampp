@@ -25,7 +25,7 @@ $res = mysqli_query($con, $sql);
 ?>
 <div class="card">
   <div class="card-body">
-    <h1 class="grid_title">TYPE FOOD MASTER</h1>
+    <h1 class="grid_title">TYPE FOODS</h1>
     <a href="manage_category.php" class="btn btn-warning btn-rounded">ADD TYPE FOOD</a>
     <div class="row grid_box">
 

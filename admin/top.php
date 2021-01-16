@@ -55,6 +55,7 @@ if ($cur_path == '' || $cur_path == 'index.php') {
   <!-- inject:css -->
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
@@ -158,10 +159,16 @@ if ($cur_path == '' || $cur_path == 'index.php') {
             </a>
           </li>
 
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="contact_us.php">
+          <li class="nav-item">
+            <a class="nav-link" href="food_favourite.php">
               <i class="mdi mdi-view-headline menu-icon"></i>
-              <span class="menu-title">ADMIN</span>
+              <span class="menu-title">TOP FOOD FAVORITE</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="invoice_sales_statistics.php">
+              <i class="mdi mdi-view-headline menu-icon"></i>
+              <span class="menu-title">THỐNG KÊ</span>
             </a>
           </li> -->
           <li class="nav-item">
