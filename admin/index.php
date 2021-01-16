@@ -179,11 +179,11 @@ if (mysqli_num_rows($res) > 0) {
 			<div class="card-body">
 				<div class="row no-gutters align-items-center">
 					<div class="col mr-2">
-						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL DAY</div>
+						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TOTAL DAY</div>
 						<br>
 						<div class="card-title">
-						<h4>
-						Day : <?php echo number_format($totalDay); ?>
+						<h4 style="color:blue;">
+						 <?php echo number_format($totalDay); ?> VND
 
 						</h4>
 							
@@ -204,11 +204,11 @@ if (mysqli_num_rows($res) > 0) {
 			<div class="card-body">
 				<div class="row no-gutters align-items-center">
 					<div class="col mr-2">
-						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL MONTH</div>
+						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TOTAL MONTH</div>
 						<br>
 						<div class="card-title">
-						<h4>
-						Month: <?php echo number_format($totalMonth); ?>
+						<h4 style="color:green;">
+						 <?php echo number_format($totalMonth); ?> VND
 
 						</h4>
 							
@@ -226,12 +226,12 @@ if (mysqli_num_rows($res) > 0) {
 			<div class="card-body">
 				<div class="row no-gutters align-items-center">
 					<div class="col mr-2">
-						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">STATICAL YEAR</div>
+						<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TOTAL YEAR</div>
 						<br>
 						<div class="card-title">
-						<h4>
+						<h4 style="color:red;">
 						
-						Year: <?php echo number_format($totalYear); ?>
+						 <?php echo number_format($totalYear); ?> VND
 						</h4>	
 						</div>
 					</div>
