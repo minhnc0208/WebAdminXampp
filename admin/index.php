@@ -190,7 +190,7 @@ if (mysqli_num_rows($res) > 0) {
 						</div>
 					</div>
 					<div class="col-auto">
-					<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+					<!-- <i class="mdi mdi-account icon-lg text-primary ml-auto"></i> -->
 					</div>
 				</div>
 			</div>
@@ -215,7 +215,7 @@ if (mysqli_num_rows($res) > 0) {
 						</div>
 					</div>
 					<div class="col-auto">
-					<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+					<!-- <i class="mdi mdi-account icon-lg text-primary ml-auto"></i> -->
 					</div>
 				</div>
 			</div>
@@ -236,7 +236,7 @@ if (mysqli_num_rows($res) > 0) {
 						</div>
 					</div>
 					<div class="col-auto">
-					<i class="mdi mdi-account icon-lg text-primary ml-auto"></i>
+					<!-- <i class="mdi mdi-account icon-lg text-primary ml-auto"></i> -->
 					</div>
 				</div>
 			</div>
