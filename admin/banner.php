@@ -1,6 +1,6 @@
 <?php
 include('top.php');
-$sql = "SELECT `id`, `iduser`, `idpayment`, `date`, SUM(`total`) as total, `name`, `phone`, `address`, `status` FROM `orderfoods` GROUP BY id, idpayment, iduser, date, name, phone, address, status ORDER BY date DESC";
+$sql = "SELECT `id`, `iduser`, `idpayment`, `date`, SUM(`total`) as total, `name`, `phone`, `address`, `status` FROM `orderfoods` GROUP BY id, idpayment, iduser, date, name, phone, address, status ORDER BY date ASC";
 $res = mysqli_query($con, $sql);
 
 ?>
