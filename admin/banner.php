@@ -1,28 +1,6 @@
 <?php
 include('top.php');
-$id = "";
-if (isset($_GET['type']) && $_GET['type'] !== '' && isset($_GET['id']) && $_GET['id'] > 0) {
-    $type = $_GET['type'];
-    $id = $_GET['id'];
-    if ($type == 'view') {
-        // mysqli_query($con,"delete from orderfoods where id='$id'");
-        mysqli_query($con, "SELECT id, SUM(total) AS Total
-    FROM orderfoods WHERE id = $id
-    GROUP BY id");
-        redirect('bannerdetails.php');
-    }
-// 	// if($type=='active' || $type=='deactive'){
-// 	// 	$status=1;
-// 	// 	if($type=='deactive'){
-// 	// 		$status=0;
-// 	// 	}
-// 	// 	mysqli_query($con,"update banner set status='$status' where id='$id'");
-// 	// 	redirect('banner.php');
-// 	// }
-
-}
-
-$sql = "select * from orderfoods ORDER BY id DESC";
+$sql = "SELECT `id`, `iduser`, `idpayment`, `date`, SUM(`total`) as total, `name`, `phone`, `address`, `status` FROM `orderfoods` GROUP BY id, idpayment, iduser, date, name, phone, address, status ORDER BY date DESC";
 $res = mysqli_query($con, $sql);
 
 ?>
@@ -39,9 +17,11 @@ $res = mysqli_query($con, $sql);
                             <tr>
                                 <th width="10%">STT</th>
                                 <th width="10%">ID USER</th>
+                                <th width="15%">NAME</th>
+                                <th width="25%">PHONE</th>
+                                <th width="25%">ADDRESS</th>
                                 <th width="15%">ID PAYMENT</th>
-                                <th width="25%">ID FOOD</th>
-                                <th width="25%">DATE</th>
+                                <th width="35%">DATE</th>
                                 <th width="25%">TOTAL</th>
                                 <th width="25%">STATUS</th>
                                 <th width=auto>ACTIONS</th>
@@ -53,10 +33,12 @@ $res = mysqli_query($con, $sql);
                                 while ($row = mysqli_fetch_assoc($res)) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['id'] ?></td>
+                                        <td><?php echo $i ?></td>
                                         <td><?php echo $row['iduser'] ?></td>
+                                        <td><?php echo $row['name'] ?></td>
+                                        <td><?php echo $row['phone'] ?></td>
+                                        <td><?php echo $row['address'] ?></td>
                                         <td><?php echo $row['idpayment'] ?></td>
-                                        <td><?php echo $row['idfood'] ?></td>
                                         <td><?php echo $row['date'] ?></td>
                                         <td><?php echo $row['total'] ?></td>
                                         <td><?php echo $row['status'] ?></td>
@@ -68,7 +50,7 @@ $res = mysqli_query($con, $sql);
                                                 <a href="javascript:void(0)" ><label style="background-color:#767e86;"
                                                             class="badge badge-success hand_cursor">Confirm</label></a>
                                             <?php endif; ?>
-                                            <a href="?id=<?php echo $row['id'] ?>&type=view"><label
+                                            <a href="bannerdetails.php?id=<?php echo $row['id'] ?>&date=<?php echo $row['date'];?>&iduser=<?php echo $row['iduser'] ?>"><label
                                                         class="badge badge-danger delete_red hand_cursor">View</label></a>&nbsp;
                                         </td>
 
