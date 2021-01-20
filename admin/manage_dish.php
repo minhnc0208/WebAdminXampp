@@ -7,6 +7,7 @@ $name = "";
 $img = "";
 $id = "";
 $image_text = "";
+$errors = array('name' => '');
 if (isset($_GET['id']) && $_GET['id'] > 0) {
 	$id = $_GET['id'];
 	$row = mysqli_fetch_assoc(mysqli_query($con, "select * from paymentmethods where id='$id'"));
@@ -18,23 +19,28 @@ if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
 	// $img=$_POST['img'];
 	// $added_on=date('Y-m-d h:i:s');
-
-	if ($id == '') {
-		$sql = "select * from paymentmethods where name='$name'";
-	} else {
-		$sql = "select * from paymentmethods where name='$name' and id!='$id'";
+	if (preg_match("/([%\$#\*!@^&]+)/", $name)) {
+		$errors['name'] = 'Please fill name again';
 	}
-	if (mysqli_num_rows(mysqli_query($con, $sql)) > 0) {
-		$msg = "Type food already added";
-	} else {
+	if(empty($errors['name'])){
 		if ($id == '') {
-			mysqli_query($con, "insert into paymentmethods(id,name) VALUES (id,'$name')");
+			$sql = "select * from paymentmethods where name='$name'";
 		} else {
-			mysqli_query($con, "update paymentmethods set name='$name' where id='$id'");
+			$sql = "select * from paymentmethods where name='$name' and id!='$id'";
 		}
-
-		redirect('dish.php');
+		if (mysqli_num_rows(mysqli_query($con, $sql)) > 0) {
+			$msg = "Type food already added";
+		} else {
+			if ($id == '') {
+				mysqli_query($con, "insert into paymentmethods(id,name) VALUES (id,'$name')");
+			} else {
+				mysqli_query($con, "update paymentmethods set name='$name' where id='$id'");
+			}
+	
+			redirect('dish.php');
+		}
 	}
+	
 }
 try {
 } catch (Exception $e) {
@@ -51,7 +57,7 @@ try {
 					<div class="form-group">
 						<label for="exampleInputName1">NAME</label>
 						<input type="text" class="form-control" placeholder="NAME" name="name" required value="<?php echo $name ?>">
-						<div class="error mt8"><?php echo $msg ?></div>
+						<div class="error mt8"><?php echo $errors['name'] ?></div>
 					</div>
 					<!-- <div class="form-group">
                       <label for="exampleInputEmail3" required>IMG</label>

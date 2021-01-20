@@ -7,6 +7,7 @@ $name = "";
 $img = "";
 $id = "";
 $image_text = "";
+$errors = array('name' => '');
 if (isset($_GET['id']) && $_GET['id'] > 0) {
 	$id = $_GET['id'];
 	$row = mysqli_fetch_assoc(mysqli_query($con, "select * from typefoods where id='$id'"));
@@ -17,24 +18,29 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
 	$img = $_POST['img'];
+	if (preg_match("/([%\$#\*!@^&]+)/", $name)) {
+		$errors['name'] = 'Please fill name again';
+	}
 	// $added_on=date('Y-m-d h:i:s');
-
-	if ($id == '') {
-		$sql = "select * from typefoods where name='$name'";
-	} else {
-		$sql = "select * from typefoods where name='$name' and id!='$id'";
-	}
-	if (mysqli_num_rows(mysqli_query($con, $sql)) > 0) {
-		$msg = "Type food already added";
-	} else {
+	if(empty($errors['name'])){
 		if ($id == '') {
-			mysqli_query($con, "insert into typefoods(id,name,img) VALUES (id,'$name','$img')");
+			$sql = "select * from typefoods where name='$name'";
 		} else {
-			mysqli_query($con, "update typefoods set name='$name', img='$img' where id='$id'");
+			$sql = "select * from typefoods where name='$name' and id!='$id'";
 		}
-
-		redirect('category.php');
+		if (mysqli_num_rows(mysqli_query($con, $sql)) > 0) {
+			$msg = "Type food already added";
+		} else {
+			if ($id == '') {
+				mysqli_query($con, "insert into typefoods(id,name,img) VALUES (id,'$name','$img')");
+			} else {
+				mysqli_query($con, "update typefoods set name='$name', img='$img' where id='$id'");
+			}
+	
+			redirect('category.php');
+		}
 	}
+	
 }
 
 ?>
@@ -48,7 +54,7 @@ if (isset($_POST['submit'])) {
 					<div class="form-group">
 						<label for="exampleInputName1">NAME</label>
 						<input type="text" class="form-control" placeholder="NAME" name="name" required value="<?php echo $name ?>">
-						<div class="error mt8"><?php echo $msg ?></div>
+						<div class="error mt8"><?php echo $errors['name'] ?></div>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail3" required>IMG</label>
