@@ -15,23 +15,23 @@ $page_title = '';
 if ($cur_path == '' || $cur_path == 'index.php') {
   $page_title = 'Dashboard';
 } elseif ($cur_path == 'category.php' || $cur_path == 'manage_category.php') {
-  $page_title = 'Manage Category';
+  $page_title = 'TYPE FOODS';
 } elseif ($cur_path == 'user.php' || $cur_path == 'manage_user.php') {
-  $page_title = 'Manage User';
+  $page_title = 'USERS';
 } elseif ($cur_path == 'delivery_boy.php' || $cur_path == 'manage_delivery_boy.php') {
-  $page_title = 'Manage Delivery Boy';
+  $page_title = 'RATING';
 } elseif ($cur_path == 'coupon_code.php' || $cur_path == 'manage_coupon_code.php') {
   $page_title = 'Manage Coupon Code';
 } elseif ($cur_path == 'dish.php' || $cur_path == 'manage_dish.php') {
-  $page_title = 'Manage Dish';
+  $page_title = 'PAYMENT METHODS';
 } elseif ($cur_path == 'banner.php' || $cur_path == 'manage_banner.php') {
-  $page_title = 'Manage Banner';
-} elseif ($cur_path == 'contact_us.php') {
-  $page_title = 'Contact Us';
+  $page_title = 'ORDER FOODS';
+} elseif ($cur_path == 'food_favourite.php') {
+  $page_title = 'TOP FOOD FAVORITE';
 } elseif ($cur_path == 'order.php') {
-  $page_title = 'Order Master';
-} elseif ($cur_path == 'setting.php') {
-  $page_title = 'Setting';
+  $page_title = 'FOODS';
+} elseif ($cur_path == 'bannerdetails.php') {
+  $page_title = 'ORDER FOOD DETAILS';
 }
 
 

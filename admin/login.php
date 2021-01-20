@@ -1,7 +1,6 @@
 <?php
 session_start();
 include('../database.inc.php');
-// include('../function.inc.php');
 $msg = "";
 if (isset($_POST['submit'])) {
   $username = $_POST['admin'];
@@ -15,7 +14,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['ADMIN_USER'] = $row['admin'];
     require_once 'index.php';
   } else {
-    $msg = "Mời nhập lại tài khoản Admin";
+    $msg = "Please fill this again";
   }
 }
 ?>
